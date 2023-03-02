@@ -5,9 +5,6 @@
 #include "Typing.h"
 
 void Typing::draw(sf::RenderTarget &target, sf::RenderStates states) const {
-//    for (Node<Letter>* walker = textInput.head; walker != nullptr; walker = walker->next) {
-//        target.draw(walker->data);
-//    }
     states.transform *= getTransform();
     for(auto& letter : textInput){
         target.draw(letter,states);
