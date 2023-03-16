@@ -9,7 +9,7 @@ add_executable(Text-Input main.cpp Font.cpp
         Letter.h
         main.cpp
         Typing.cpp
-        Typing.h)
+        Typing.h Helper/StatesENUM.h Helper/states.cpp Helper/states.h)
 
 target_link_libraries(Text-Input sfml-graphics sfml-audio)
 
