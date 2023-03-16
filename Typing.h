@@ -17,7 +17,6 @@ public:
     void setCharacterPosition();
 private:
     Letter letter;
-    //LinkedList<Letter> textInput;
     std::list<Letter> textInput;
     sf::Vector2f starting_point;
     int count = 0;
