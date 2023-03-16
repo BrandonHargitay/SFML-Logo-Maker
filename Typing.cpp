@@ -35,21 +35,29 @@ void Typing::addEventHandler(sf::RenderWindow &window, const sf::Event &event) {
 }
 void Typing::setCharacterPosition() {
     if (textInput.size() == 1) {
-        textInput.back().setPosition(starting_point);
-        sf::Vector2f size = textInput.back().getPosition();
-        std::cout << textInput.back() << ": " << size.x << " " << size.y << std::endl;
+        textInput.back().setPosition(getPosition());
     }
     else {
         textInput.back().setPosition(std::prev(textInput.end(), 2)->getPosition().x
                                     + std::prev(textInput.end(), 2)->getGlobalBounds().width
                                     + std::prev(textInput.end(), 2)->getLetterSpacing()
-                                    , starting_point.y );
-
-        sf::Vector2f size = textInput.back().getPosition();
-        std::cout << textInput.back() << ": " << size.x << " " << size.y << std::endl;
-
+                                    , getPosition().y );
     }
 }
+
+float Typing::getLastX() {
+    return std::prev(textInput.end(), 2)->getPosition().x
+           + std::prev(textInput.end(), 2)->getGlobalBounds().width
+           + std::prev(textInput.end(), 2)->getLetterSpacing();
+}
+
+float Typing::getY() {
+    return getPosition().y;
+}
+
+
+
+
 
 
 
