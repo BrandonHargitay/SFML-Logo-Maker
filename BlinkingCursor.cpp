@@ -2,7 +2,6 @@
 // Created by Brandon Hargitay on 3/16/23.
 //
 
-#include <iostream>
 #include "BlinkingCursor.h"
 
 BlinkingCursor::BlinkingCursor() {
@@ -25,16 +24,16 @@ void BlinkingCursor::update() {
 
 
 void BlinkingCursor::draw(sf::RenderTarget &target, sf::RenderStates states) const {
+    states.transform *= getTransform();
+
     if(!checkState(HIDDEN))
-        target.draw(text);
+        target.draw(text, states);
 }
 
 void BlinkingCursor::setPosition(float x, float y) {
     text.setPosition(x,y);
 }
 
-sf::Vector2f BlinkingCursor::getPosition() {
-    return text.getPosition();
-}
+
 
 
