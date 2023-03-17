@@ -3,11 +3,11 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1800, 800), "SFML works!");
-    TextInput type;
-    TextInput type2;
+    TextInput type("first name");
+    TextInput type2("last name");
 
     type.setPosition(400,100);
-    type2.setPosition(400,600);
+    type2.setPosition(400,400);
 
     while (window.isOpen())
     {
