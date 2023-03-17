@@ -7,12 +7,12 @@
 #include "SFML/Graphics.hpp"
 #include "Helper/states.h"
 
-class TextBox :  public sf::Drawable, public sf::Transformable, public states{
+class TextBox :  public sf::Drawable, public states{
 public:
     TextBox();
-    bool contains(sf::Vector2i aVector);
     void setPosition(float x,  float y);
-
+    void getPosition();
+    sf::FloatRect getGlobalBounds() const;
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::RectangleShape box;
