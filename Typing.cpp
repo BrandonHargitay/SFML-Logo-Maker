@@ -12,7 +12,7 @@ void Typing::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 }
 
 Typing::Typing() {
-    setPosition({0, 0.f});
+//    setPosition({0, 0.f});
     letter.setFont(Font::getFont());
     letter.setFillColor(sf::Color::White);
     letter.setCharacterSize(40);
