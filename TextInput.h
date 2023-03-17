@@ -14,6 +14,7 @@ public:
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void update();
     void addEventHandler(sf::RenderWindow& window, sf::Event event);
+    sf::FloatRect getGlobalBounds() const;
     void setPosition(float x, float y);
 private:
     Typing typing;
