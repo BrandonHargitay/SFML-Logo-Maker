@@ -19,6 +19,7 @@ Typing::Typing() {
 }
 
 void Typing::addEventHandler(sf::RenderWindow &window, const sf::Event &event) {
+
     if (event.type == sf::Event::TextEntered) {
         if (event.text.unicode >= 32 && event.text.unicode <= 126) {
             letter.setString(static_cast<char>(event.text.unicode));
