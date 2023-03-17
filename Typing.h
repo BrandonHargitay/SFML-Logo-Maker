@@ -23,7 +23,8 @@ public:
 private:
     void findAndColorWord(const std::string& word, const sf::Color& color);
     void colorMatchingWords();
-
+    void colorNumbers();
+    void colorOperators();
     Letter letter;
     std::list<Letter> textInput;
     states state;

@@ -61,7 +61,8 @@ void Typing::findAndColorWord(const std::string& word, const sf::Color& color) {
     int wordLength = word.length();
 
     for (auto it = textInput.begin(); it != textInput.end(); ++it) {
-        currentWord.push_back(it->getString()[0]);
+        char currentChar = it->getString()[0];
+        currentWord.push_back(currentChar);
 
         if (currentWord.size() >= wordLength) {
             if (currentWord.substr(currentWord.size() - wordLength, wordLength) == word) {
@@ -72,12 +73,39 @@ void Typing::findAndColorWord(const std::string& word, const sf::Color& color) {
         }
     }
 }
+void Typing::colorNumbers() {
+    for (auto it = textInput.begin(); it != textInput.end(); ++it) {
+        char currentChar = it->getString()[0];
+
+        // Check if the character is a digit and set its color to red
+        if (currentChar >= '0' && currentChar <= '9') {
+            it->setFillColor(sf::Color::Red);
+        } else {
+            it->setFillColor(sf::Color::White);
+        }
+    }
+}
 
 void Typing::colorMatchingWords() {
+    colorNumbers(); // Add this line to handle coloring numbers
+    colorOperators(); // Add this line to handle coloring operators
     findAndColorWord("int", sf::Color::Blue);
     findAndColorWord("float", sf::Color::Red);
     findAndColorWord("char", sf::Color::Yellow);
     findAndColorWord("double", sf::Color::Green);
+}
+
+void Typing::colorOperators() {
+    std::string operators = "+-*/%=&|<>!^?";
+
+    for (auto it = textInput.begin(); it != textInput.end(); ++it) {
+        char currentChar = it->getString()[0];
+
+        // Check if the character is an operator and set its color to green
+        if (operators.find(currentChar) != std::string::npos) {
+            it->setFillColor(sf::Color::Green);
+        }
+    }
 }
 
 
