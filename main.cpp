@@ -20,8 +20,8 @@ int main()
             type2.addEventHandler(window, event);
             type.addEventHandler(window, event);
         }
-//        type.update();
-//        type2.update();
+        type.update();
+        type2.update();
         window.clear();
         window.draw(type);
         window.draw(type2);

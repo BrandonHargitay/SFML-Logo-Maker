@@ -19,12 +19,13 @@ public:
     virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
     float getLastX();
     float getY();
-public:
     void setCharacterPosition();
 private:
+    void findAndColorWord(const std::string& word, const sf::Color& color);
+    void colorMatchingWords();
+
     Letter letter;
     std::list<Letter> textInput;
-    sf::Vector2f starting_point;
     states state;
     BlinkingCursor cursor;
 };
