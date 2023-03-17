@@ -5,8 +5,9 @@
 #ifndef TEXT_INPUT_STATESENUM_H
 #define TEXT_INPUT_STATESENUM_H
 
-enum statesEnum {
+enum StatesENUM {
     HIDDEN,
+    ACTIVE,
     LAST_STATE
 };
 

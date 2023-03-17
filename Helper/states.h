@@ -5,20 +5,20 @@
 #ifndef TEXT_INPUT_STATES_H
 #define TEXT_INPUT_STATES_H
 
-#include "statesEnum.h"
+#include "StatesENUM.h"
 #include <map>
 
 class states{
 private:
-    std::map<statesEnum, bool> map;
+    std::map<StatesENUM, bool> map;
     void load();
 public:
     states();
-    bool checkState(statesEnum state) const;
-    void enableState(statesEnum state);
-    void disableState(statesEnum state);
-    void setState(statesEnum state, bool value);
-    void toggleState(statesEnum state);
+    bool checkState(StatesENUM state) const;
+    void enableState(StatesENUM state);
+    void disableState(StatesENUM state);
+    void setState(StatesENUM state, bool value);
+    void toggleState(StatesENUM state);
 };
 
 

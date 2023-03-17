@@ -9,23 +9,23 @@ states::states() {
     load();
 }
 
-bool states::checkState(statesEnum state) const {
+bool states::checkState(StatesENUM state) const {
     return map.at(state);
 }
 
-void states::enableState(statesEnum state) {
+void states::enableState(StatesENUM state) {
     setState(state,true);
 }
 
-void states::disableState(statesEnum state) {
+void states::disableState(StatesENUM state) {
     setState(state,false);
 }
 
-void states::setState(statesEnum state, bool value) {
+void states::setState(StatesENUM state, bool value) {
     map.at(state) = value;
 }
 
-void states::toggleState(statesEnum state) {
+void states::toggleState(StatesENUM state) {
     setState(state, !map.at(state));
 }
 
@@ -34,6 +34,6 @@ void states::toggleState(statesEnum state) {
 void states::load() {
     for (int i = 0; i < LAST_STATE; i++)
     {
-        map[static_cast<statesEnum>(i)] = false;
+        map[static_cast<StatesENUM>(i)] = false;
     }
 }
