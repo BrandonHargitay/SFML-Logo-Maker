@@ -1,11 +1,10 @@
 #include <SFML/Graphics.hpp>
-#include "Typing.h"
+#include "TextInput.h"
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(500, 600), "SFML works!");
-    sf::CircleShape shape(100.f);
-    Typing type;
-    std::cout << type.getPosition().x << " " << type.getPosition().y;
+    sf::RenderWindow window(sf::VideoMode(1800, 800), "SFML works!");
+    TextInput type;
+
 
     while (window.isOpen())
     {
@@ -17,7 +16,7 @@ int main()
             }
         type.addEventHandler(window, event);
         }
-
+        type.update();
         window.clear();
         window.draw(type);
         window.display();
