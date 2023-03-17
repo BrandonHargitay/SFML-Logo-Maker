@@ -10,7 +10,7 @@
 #include "TextBox.h"
 class TextInput : public sf::Drawable, public sf::Transformable, public states{
 public:
-    TextInput();
+    TextInput(const std::string str);
     virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
     void update();
     void addEventHandler(sf::RenderWindow& window, sf::Event event);

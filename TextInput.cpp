@@ -4,8 +4,9 @@
 
 #include "TextInput.h"
 
-TextInput::TextInput() {
+TextInput::TextInput(const std::string str) {
     setState(ACTIVE, false);
+    box.setString(str);
 }
 
 void TextInput::draw(sf::RenderTarget &window, sf::RenderStates states) const {
@@ -20,17 +21,12 @@ void TextInput::update() {
         cursor.setPosition(typing.getLastX(),typing.getY());
         cursor.update(); // makes the cursor blink
     }
-
-
 }
 
 void TextInput::addEventHandler(sf::RenderWindow &window, sf::Event event) {
     if(MouseEvents::isClick(box, window)){
         enableState(ACTIVE);
-
-        std::cout << "CLICKED ";
     }else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
-        std::cout << "WINDOW CLICKED ";
         disableState(ACTIVE);
     }
     if(checkState(ACTIVE)){
@@ -42,6 +38,7 @@ void TextInput::addEventHandler(sf::RenderWindow &window, sf::Event event) {
 void TextInput::setPosition(float x, float y) {
     Transformable::setPosition(x, y);
     box.setPosition(x,y);
+    box.centerText();
 }
 
 sf::FloatRect TextInput::getGlobalBounds() const {
