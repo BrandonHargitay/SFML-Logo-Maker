@@ -102,6 +102,13 @@ build CMakeFiles/Text-Input.dir/Helper/MouseEvents.cpp.o: CXX_COMPILER__Text-Inp
   OBJECT_DIR = CMakeFiles/Text-Input.dir
   OBJECT_FILE_DIR = CMakeFiles/Text-Input.dir/Helper
 
+build CMakeFiles/Text-Input.dir/TextBox.cpp.o: CXX_COMPILER__Text-Input_Debug /Users/hargy/CLionProjects/CS008/Text-Input/TextBox.cpp || cmake_object_order_depends_target_Text-Input
+  DEP_FILE = CMakeFiles/Text-Input.dir/TextBox.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -std=gnu++14
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/Text-Input.dir
+  OBJECT_FILE_DIR = CMakeFiles/Text-Input.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Text-Input
@@ -110,7 +117,7 @@ build CMakeFiles/Text-Input.dir/Helper/MouseEvents.cpp.o: CXX_COMPILER__Text-Inp
 #############################################
 # Link the executable Text-Input
 
-build Text-Input: CXX_EXECUTABLE_LINKER__Text-Input_Debug CMakeFiles/Text-Input.dir/main.cpp.o CMakeFiles/Text-Input.dir/Font.cpp.o CMakeFiles/Text-Input.dir/Letter.cpp.o CMakeFiles/Text-Input.dir/Typing.cpp.o CMakeFiles/Text-Input.dir/Helper/states.cpp.o CMakeFiles/Text-Input.dir/BlinkingCursor.cpp.o CMakeFiles/Text-Input.dir/TextInput.cpp.o CMakeFiles/Text-Input.dir/Helper/MouseEvents.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
+build Text-Input: CXX_EXECUTABLE_LINKER__Text-Input_Debug CMakeFiles/Text-Input.dir/main.cpp.o CMakeFiles/Text-Input.dir/Font.cpp.o CMakeFiles/Text-Input.dir/Letter.cpp.o CMakeFiles/Text-Input.dir/Typing.cpp.o CMakeFiles/Text-Input.dir/Helper/states.cpp.o CMakeFiles/Text-Input.dir/BlinkingCursor.cpp.o CMakeFiles/Text-Input.dir/TextInput.cpp.o CMakeFiles/Text-Input.dir/Helper/MouseEvents.cpp.o CMakeFiles/Text-Input.dir/TextBox.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib  /opt/homebrew/lib/libsfml-audio.2.5.1.dylib  /opt/homebrew/lib/libsfml-window.2.5.1.dylib  /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   OBJECT_DIR = CMakeFiles/Text-Input.dir
