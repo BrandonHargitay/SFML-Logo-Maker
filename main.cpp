@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "TextInput.h"
+#include "TextBox.h"
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1800, 800), "SFML works!");
