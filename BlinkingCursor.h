@@ -6,12 +6,16 @@
 #define TEXT_INPUT_BLINKINGCURSOR_H
 #include "Helper/states.h"
 #include "Font.h"
-class BlinkingCursor : public states, public sf::Text {
+class BlinkingCursor : public sf::Drawable, public states {
 public:
     BlinkingCursor();
     void update();
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    void setPosition(float x,  float y);
+    sf::Vector2f getPosition();
 private:
     sf::Clock clock;
+    sf::Text text;
 };
 
 
