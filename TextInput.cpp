@@ -16,14 +16,18 @@ void TextInput::draw(sf::RenderTarget &window, sf::RenderStates states) const {
 }
 
 void TextInput::update() {
-    cursor.setPosition(typing.getLastX(),typing.getY());
-    cursor.update(); // makes the cursor blink
+    if(checkState(ACTIVE)){
+        cursor.setPosition(typing.getLastX(),typing.getY());
+        cursor.update(); // makes the cursor blink
+    }
+
 
 }
 
 void TextInput::addEventHandler(sf::RenderWindow &window, sf::Event event) {
     if(MouseEvents::isClick(box, window)){
         enableState(ACTIVE);
+
         std::cout << "CLICKED ";
     }else if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
         std::cout << "WINDOW CLICKED ";
@@ -31,6 +35,7 @@ void TextInput::addEventHandler(sf::RenderWindow &window, sf::Event event) {
     }
     if(checkState(ACTIVE)){
         typing.addEventHandler(window, event);
+        update();
     }
 }
 

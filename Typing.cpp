@@ -12,7 +12,6 @@ void Typing::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 }
 
 Typing::Typing() {
-//    setPosition({0, 0.f});
     letter.setFont(Font::getFont());
     letter.setFillColor(sf::Color::White);
     letter.setCharacterSize(40);
@@ -32,24 +31,17 @@ void Typing::addEventHandler(sf::RenderWindow &window, const sf::Event &event) {
             }
         }
     }
+    colorMatchingWords();
 }
 void Typing::setCharacterPosition() {
     if (textInput.size() == 1) {
         textInput.back().setPosition(getPosition());
-        sf::Text lastText = textInput.back();
-        std::cout << "TEXT:" << std::endl;
-        std::cout << "X: " << lastText.getPosition().x << " Y: " << lastText.getPosition().y << std::endl;
     }
     else {
         float xpos = std::prev(textInput.end(), 2)->getPosition().x
                          + std::prev(textInput.end(), 2)->getGlobalBounds().width
                          + std::prev(textInput.end(), 2)->getLetterSpacing();
         textInput.back().setPosition(xpos, getPosition().y );
-        std::cout << "TEXT:" << std::endl;
-        sf::Text lastText = textInput.back();
-        std::cout << "X: " << lastText.getPosition().x << " Y: " << lastText.getPosition().y << std::endl;
-
-
     }
 }
 
@@ -64,6 +56,29 @@ float Typing::getY() {
     return getPosition().y;
 }
 
+void Typing::findAndColorWord(const std::string& word, const sf::Color& color) {
+    std::string currentWord;
+    int wordLength = word.length();
+
+    for (auto it = textInput.begin(); it != textInput.end(); ++it) {
+        currentWord.push_back(it->getString()[0]);
+
+        if (currentWord.size() >= wordLength) {
+            if (currentWord.substr(currentWord.size() - wordLength, wordLength) == word) {
+                for (int i = 0; i < wordLength; ++i) {
+                    std::prev(it, wordLength - i - 1)->setFillColor(color);
+                }
+            }
+        }
+    }
+}
+
+void Typing::colorMatchingWords() {
+    findAndColorWord("int", sf::Color::Blue);
+    findAndColorWord("float", sf::Color::Red);
+    findAndColorWord("char", sf::Color::Yellow);
+    findAndColorWord("double", sf::Color::Green);
+}
 
 
 
