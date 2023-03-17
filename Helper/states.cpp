@@ -5,6 +5,10 @@
 
 #include "states.h"
 
+states::states() {
+    load();
+}
+
 bool states::checkState(statesEnum state) const {
     return map.at(state);
 }
@@ -25,9 +29,7 @@ void states::toggleState(statesEnum state) {
     setState(state, !map.at(state));
 }
 
-states::states() {
-    load();
-}
+
 
 void states::load() {
     for (int i = 0; i < LAST_STATE; i++)

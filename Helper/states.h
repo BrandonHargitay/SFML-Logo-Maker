@@ -10,7 +10,6 @@
 
 class states{
 private:
-
     std::map<statesEnum, bool> map;
     void load();
 public:
