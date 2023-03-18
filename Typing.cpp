@@ -19,15 +19,14 @@ Typing::Typing() {
 
 void Typing::addEventHandler(sf::RenderWindow &window, const sf::Event &event) {
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Z && event.key.control) {
-        if (!undoStack.empty()) {
-            applySnapshot(undoStack.top());
-            undoStack.pop();
+        if (!History::isEmpty()) {
+            applySnapshot(History::pop());
             return;
         }
     }
 
     if (event.type == sf::Event::TextEntered) {
-        undoStack.push(getSnapshot());
+        History::push(getSnapshot());
         if (event.text.unicode >= 32 && event.text.unicode <= 126) {
             letter.setString(static_cast<char>(event.text.unicode));
             textInput.push_back(letter);
