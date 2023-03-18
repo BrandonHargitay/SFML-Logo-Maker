@@ -9,10 +9,12 @@
 #include "Font.h"
 #include "Helper/states.h"
 #include <list>
+#include <stack>
+#include "History.h"
 #include "BlinkingCursor.h"
+#include "SnapshotInterface.h"
 
-
-class Typing : public sf::Drawable, public sf::Transformable, public states {
+class Typing : public sf::Drawable, public sf::Transformable, public states, public SnapshotInterface{
 public:
     Typing();
     void addEventHandler(sf::RenderWindow& window, const sf::Event &event);
@@ -24,11 +26,19 @@ private:
     void findAndColorWord(const std::string& word, const sf::Color& color);
     void colorMatchingWords();
     void colorNumbers();
+
+public:
+    Snapshot getSnapshot() override;
+
+    void applySnapshot(const Snapshot &snapshot) override;
+
+private:
     void colorOperators();
     Letter letter;
     std::list<Letter> textInput;
     states state;
     BlinkingCursor cursor;
+    std::stack<Snapshot> undoStack;
 };
 
 

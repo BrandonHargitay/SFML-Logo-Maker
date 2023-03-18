@@ -18,8 +18,16 @@ Typing::Typing() {
 }
 
 void Typing::addEventHandler(sf::RenderWindow &window, const sf::Event &event) {
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Z && event.key.control) {
+        if (!undoStack.empty()) {
+            applySnapshot(undoStack.top());
+            undoStack.pop();
+            return;
+        }
+    }
 
     if (event.type == sf::Event::TextEntered) {
+        undoStack.push(getSnapshot());
         if (event.text.unicode >= 32 && event.text.unicode <= 126) {
             letter.setString(static_cast<char>(event.text.unicode));
             textInput.push_back(letter);
@@ -106,6 +114,14 @@ void Typing::colorOperators() {
             it->setFillColor(sf::Color::Green);
         }
     }
+}
+
+Snapshot Typing::getSnapshot() {
+    return Snapshot(textInput);
+}
+
+void Typing::applySnapshot(const Snapshot &snapshot) {
+    textInput = snapshot.textData;
 }
 
 
